@@ -1,4 +1,4 @@
-package collect
+package collections
 
 import "github.com/unknownfeature/go-util/cmd/funcs"
 
