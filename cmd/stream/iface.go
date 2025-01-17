@@ -9,7 +9,10 @@ type Builder[T any] interface {
 }
 
 type Stream[T any] interface {
-	AllMatch(predicate funcs.Predicate[T]) bool
-	AnyMatch(predicate funcs.Predicate[T]) bool
+	AllMatch(funcs.Predicate[T]) bool
+	AnyMatch(funcs.Predicate[T]) bool
 	Count() uint64
+	IsParallel() bool
+	ForEach(funcs.Consumer[T])
+	Reduce(T, funcs.BinaryOperator[T]) T
 }
